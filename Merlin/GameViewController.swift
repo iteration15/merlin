@@ -13,12 +13,14 @@ class GameViewController: UIViewController {
     
     var scnView: SCNView!
     var scnScene: SCNScene!
+    var cameraNode: SCNNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupScene()
+        setupCamera()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -36,5 +38,12 @@ class GameViewController: UIViewController {
     func setupScene() {
         scnScene = SCNScene()
         scnView.scene = scnScene
+    }
+    
+    func setupCamera() {
+        cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        scnScene.rootNode.addChildNode(cameraNode)
     }
 }
