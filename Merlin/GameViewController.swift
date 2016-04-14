@@ -51,12 +51,20 @@ class GameViewController: UIViewController {
     }
     
     func spawnShape() {
-        var geometry:SCNGeometry
-        switch ShapeType.random() {
-        default:
-            geometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0.0)
-        }
-        let geometryNode = SCNNode(geometry: geometry)
-        scnScene.rootNode.addChildNode(geometryNode)
+        var merlin:SCNGeometry
+        var food:SCNGeometry
+        
+        //switch ShapeType.random() {
+        //default:
+            merlin = SCNSphere(radius: 0.5)
+        //}
+        
+        food = SCNCapsule(capRadius: 0.3, height: 2.5)
+        
+        let merlinNode = SCNNode(geometry: merlin)
+        let foodNode = SCNNode(geometry: food)
+        
+        scnScene.rootNode.addChildNode(merlinNode)
+        scnScene.rootNode.addChildNode(foodNode)
     }
 }
