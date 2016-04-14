@@ -1,1 +1,1 @@
-## a project using Swift and SceneKit
+## a project using Swift and SceneKit.
