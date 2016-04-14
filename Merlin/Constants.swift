@@ -12,3 +12,7 @@ enum ZPosition: Int {
 
 let TimeScale: Float = 1
 
+enum State: Int {
+    case happy, hungry, content, eating
+}
+

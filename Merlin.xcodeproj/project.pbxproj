@@ -15,6 +15,12 @@
 		A2E63BDB1CBF0407005FED19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BD91CBF0407005FED19 /* LaunchScreen.storyboard */; };
 		A2E63BE31CBF0E62005FED19 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BE21CBF0E62005FED19 /* ShapeType.swift */; };
 		A2E63BE51CBFCE3D005FED19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BE41CBFCE3D005FED19 /* Constants.swift */; };
+		A2E63BE71CBFCFB8005FED19 /* StockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BE61CBFCFB8005FED19 /* StockItem.swift */; };
+		A2E63BE91CBFD029005FED19 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BE81CBFD029005FED19 /* ProgressBar.swift */; };
+		A2E63BEB1CBFD055005FED19 /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BEA1CBFD055005FED19 /* GameStateDelegate.swift */; };
+		A2E63BED1CBFD079005FED19 /* DiscreteProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BEC1CBFD079005FED19 /* DiscreteProgressBar.swift */; };
+		A2E63BEF1CBFD09F005FED19 /* ContinuousProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BEE1CBFD09F005FED19 /* ContinuousProgressBar.swift */; };
+		A2E63BF21CBFD208005FED19 /* gamedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BF11CBFD208005FED19 /* gamedata.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		A2E63BDC1CBF0407005FED19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E63BE21CBF0E62005FED19 /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
 		A2E63BE41CBFCE3D005FED19 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A2E63BE61CBFCFB8005FED19 /* StockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockItem.swift; sourceTree = "<group>"; };
+		A2E63BE81CBFD029005FED19 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		A2E63BEA1CBFD055005FED19 /* GameStateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStateDelegate.swift; sourceTree = "<group>"; };
+		A2E63BEC1CBFD079005FED19 /* DiscreteProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscreteProgressBar.swift; sourceTree = "<group>"; };
+		A2E63BEE1CBFD09F005FED19 /* ContinuousProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousProgressBar.swift; sourceTree = "<group>"; };
+		A2E63BF11CBFD208005FED19 /* gamedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gamedata.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 		A2E63BCD1CBF0407005FED19 /* Merlin */ = {
 			isa = PBXGroup;
 			children = (
+				A2E63BF01CBFD1F7005FED19 /* Resources */,
 				A2E63BCE1CBF0407005FED19 /* AppDelegate.swift */,
 				A2E63BD01CBF0407005FED19 /* art.scnassets */,
 				A2E63BD21CBF0407005FED19 /* GameViewController.swift */,
@@ -67,10 +80,23 @@
 				A2E63BE41CBFCE3D005FED19 /* Constants.swift */,
 				A2E63BD71CBF0407005FED19 /* Assets.xcassets */,
 				A2E63BD91CBF0407005FED19 /* LaunchScreen.storyboard */,
+				A2E63BEE1CBFD09F005FED19 /* ContinuousProgressBar.swift */,
+				A2E63BEA1CBFD055005FED19 /* GameStateDelegate.swift */,
+				A2E63BEC1CBFD079005FED19 /* DiscreteProgressBar.swift */,
+				A2E63BE81CBFD029005FED19 /* ProgressBar.swift */,
+				A2E63BE61CBFCFB8005FED19 /* StockItem.swift */,
 				A2E63BDC1CBF0407005FED19 /* Info.plist */,
 				A2E63BE21CBF0E62005FED19 /* ShapeType.swift */,
 			);
 			path = Merlin;
+			sourceTree = "<group>";
+		};
+		A2E63BF01CBFD1F7005FED19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2E63BF11CBFD208005FED19 /* gamedata.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +161,7 @@
 				A2E63BD11CBF0407005FED19 /* art.scnassets in Resources */,
 				A2E63BDB1CBF0407005FED19 /* LaunchScreen.storyboard in Resources */,
 				A2E63BD81CBF0407005FED19 /* Assets.xcassets in Resources */,
+				A2E63BF21CBFD208005FED19 /* gamedata.plist in Resources */,
 				A2E63BD61CBF0407005FED19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,8 +174,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2E63BD31CBF0407005FED19 /* GameViewController.swift in Sources */,
+				A2E63BEF1CBFD09F005FED19 /* ContinuousProgressBar.swift in Sources */,
+				A2E63BED1CBFD079005FED19 /* DiscreteProgressBar.swift in Sources */,
 				A2E63BE31CBF0E62005FED19 /* ShapeType.swift in Sources */,
 				A2E63BCF1CBF0407005FED19 /* AppDelegate.swift in Sources */,
+				A2E63BE71CBFCFB8005FED19 /* StockItem.swift in Sources */,
+				A2E63BEB1CBFD055005FED19 /* GameStateDelegate.swift in Sources */,
+				A2E63BE91CBFD029005FED19 /* ProgressBar.swift in Sources */,
 				A2E63BE51CBFCE3D005FED19 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
