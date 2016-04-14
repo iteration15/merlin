@@ -54,17 +54,16 @@ class GameViewController: UIViewController {
         var merlin:SCNGeometry
         var food:SCNGeometry
         
-        //switch ShapeType.random() {
-        //default:
-            merlin = SCNSphere(radius: 0.5)
-        //}
-        
-        food = SCNCapsule(capRadius: 0.3, height: 2.5)
+        merlin = SCNSphere(radius: 0.5)
+        food = SCNCapsule(capRadius: 0.2, height: 0.7)
         
         let merlinNode = SCNNode(geometry: merlin)
         let foodNode = SCNNode(geometry: food)
         
         scnScene.rootNode.addChildNode(merlinNode)
         scnScene.rootNode.addChildNode(foodNode)
+        
+        merlinNode.physicsBody = SCNPhysicsBody(type: .Static, shape: nil)
+        foodNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
     }
 }
