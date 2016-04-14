@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
@@ -57,13 +58,23 @@ class GameViewController: UIViewController {
         merlin = SCNSphere(radius: 0.5)
         food = SCNCapsule(capRadius: 0.2, height: 0.7)
         
+        food.materials.first?.diffuse.contents = UIColor.random()
+        
         let merlinNode = SCNNode(geometry: merlin)
         let foodNode = SCNNode(geometry: food)
+        
+        merlinNode.physicsBody = SCNPhysicsBody(type: .Static, shape: nil)
+        foodNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        
+        let randomX = Float.random(min: -2, max: 2)
+        let randomY = Float.random(min: 10, max: 18)
+        let force = SCNVector3(x: randomX, y: randomY , z: 0)
+        let position = SCNVector3(x: 0.05, y: 0.05, z: 0.05)
+        foodNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
         
         scnScene.rootNode.addChildNode(merlinNode)
         scnScene.rootNode.addChildNode(foodNode)
         
-        merlinNode.physicsBody = SCNPhysicsBody(type: .Static, shape: nil)
-        foodNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        
     }
 }
