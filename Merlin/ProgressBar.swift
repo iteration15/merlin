@@ -9,8 +9,6 @@
 import SpriteKit
 
 protocol ProgressBar {
-    
     var node : SKNode {get}
     func setProgress(percentage percentage: Float)
-    
 }

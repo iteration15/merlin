@@ -34,11 +34,8 @@ class GameViewController: UIViewController {
     
     func setupView() {
         scnView = self.view as! SCNView
-        
         scnView.showsStatistics = true
-        // 2
         scnView.allowsCameraControl = true
-        // 3
         scnView.autoenablesDefaultLighting = true
     }
     
@@ -55,17 +52,12 @@ class GameViewController: UIViewController {
     }
     
     func spawnShape() {
-        // 1
         var geometry:SCNGeometry
-        // 2
         switch ShapeType.random() {
         default:
-            // 3
             geometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0.0)
         }
-        // 4
         let geometryNode = SCNNode(geometry: geometry)
-        // 5
         scnScene.rootNode.addChildNode(geometryNode)
     }
 }

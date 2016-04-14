@@ -19,7 +19,6 @@ public enum ShapeType:Int {
     case Cone
     case Tube
     
-    // 2
     static func random() -> ShapeType {
         let maxValue = Tube.rawValue
         let rand = arc4random_uniform(UInt32(maxValue+1))

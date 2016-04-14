@@ -7,7 +7,5 @@
 //
 
 protocol GameStateDelegate {
-    
     func gameStateDelegateChangeMoneyBy(delta delta: Int) -> Bool
-    
 }

@@ -84,12 +84,12 @@ class StockItem : SKNode {
         addChild(priceTag)
         addChild(stockingTimer)
         addChild(sellButton)
+        
+        switchTo(state: state)
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
-        
     }
     
     func setupPriceLabel() {
@@ -113,6 +113,29 @@ class StockItem : SKNode {
         stockingTimer.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
     }
     
+    func switchTo(state state : State) {
+        self.state = state
+        switch state {
+        case .happy:
+            stockingTimer.hidden = true
+            sellButton.hidden = true
+            priceTag.hidden = false
+        case .hungry:
+            stockingTimer.hidden = false
+            sellButton.hidden = true
+            priceTag.hidden = true
+        case .content:
+            stockingTimer.hidden = true
+            sellButton.hidden = false
+            priceTag.hidden = true
+            progressBar.setProgress(percentage: 1)
+        case .eating:
+            stockingTimer.hidden = true
+            sellButton.hidden = true
+            priceTag.hidden = true
+        }
+    }
+    
     // MARK: write dictionary for storage of stockitem
     func data() -> NSDictionary {
         let data = NSMutableDictionary()
@@ -121,6 +144,7 @@ class StockItem : SKNode {
         data["amount"] = amount
         data["x"] = relativeX
         data["y"] = relativeY
+        data["state"] = state.rawValue
         return data
     }
 
