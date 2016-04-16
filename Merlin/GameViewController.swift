@@ -87,6 +87,12 @@ class GameViewController: UIViewController {
         let trailEmitter = createTrail(color, geometry: pyramid)
         pyramidNode.addParticleSystem(trailEmitter)
         
+        if color == UIColor.redColor() {
+            pyramidNode.name = "BAD"
+        } else {
+            pyramidNode.name = "GOOD"
+        }
+        
         scnScene.rootNode.addChildNode(merlinNode)
         //scnScene.rootNode.addChildNode(capsuleNode)
         scnScene.rootNode.addChildNode(pyramidNode)
