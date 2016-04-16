@@ -60,7 +60,7 @@ class GameViewController: UIViewController {
         
         merlin = SCNSphere(radius: 0.5)
         capsule = SCNCapsule(capRadius: 0.2, height: 0.7)
-        pyramid = SCNPyramid(width: 0.5, height: 0.5, length: 0.5)
+        pyramid = SCNPyramid(width: 0.2, height: 0.2, length: 0.2)
         
         merlin.materials.first?.diffuse.contents = UIColor.purpleColor()
         capsule.materials.first?.diffuse.contents = UIColor.greenColor()
