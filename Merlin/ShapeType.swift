@@ -11,7 +11,6 @@ import Foundation
 public enum ShapeType:Int {
     
     case Box = 0
-    case Sphere
     case Pyramid
     case Torus
     case Capsule
