@@ -55,37 +55,37 @@ class GameViewController: UIViewController {
     
     func spawnShape() {
         var merlin:SCNGeometry
-        var capsule:SCNGeometry
+        var torus:SCNGeometry
         var pyramid:SCNGeometry
         
-        merlin = SCNSphere(radius: 0.5)
-        capsule = SCNCapsule(capRadius: 0.2, height: 0.7)
-        pyramid = SCNPyramid(width: 0.2, height: 0.2, length: 0.2)
+        merlin = SCNCone(topRadius: 0, bottomRadius: 0.5, height: 2.0)
+        torus = SCNTorus(ringRadius: 0.8, pipeRadius: 0.2)
+        pyramid = SCNPyramid(width: 0.8, height: 0.8, length: 0.8)
         
         merlin.materials.first?.diffuse.contents = UIColor.purpleColor()
-        capsule.materials.first?.diffuse.contents = UIColor.greenColor()
+        torus.materials.first?.diffuse.contents = UIColor.random()
         pyramid.materials.first?.diffuse.contents = UIColor.random()
         
         let merlinNode = SCNNode(geometry: merlin)
-        let capsuleNode = SCNNode(geometry: capsule)
+        let torusNode = SCNNode(geometry: torus)
         let pyramidNode = SCNNode(geometry: pyramid)
         
-        merlinNode.physicsBody = SCNPhysicsBody(type: .Static, shape: nil)
-        capsuleNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        merlinNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        torusNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
         pyramidNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
         
         let randomX = Float.random(min: -2, max: 0)
         let randomY = Float.random(min: 10, max: 18)
         let force = SCNVector3(x: randomX, y: randomY , z: 0)
         let position = SCNVector3(x: 0.01, y: 0.05, z: 0.05)
-        capsuleNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
+        torusNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
         pyramidNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
         
         let color = UIColor.random()
-        pyramid.materials.first?.diffuse.contents = color
+        torus.materials.first?.diffuse.contents = color
         
-        let trailEmitter = createTrail(color, geometry: pyramid)
-        pyramidNode.addParticleSystem(trailEmitter)
+        let trailEmitter = createTrail(color, geometry: torus)
+        torusNode.addParticleSystem(trailEmitter)
         
         if color == UIColor.redColor() {
             pyramidNode.name = "BAD"
@@ -94,8 +94,8 @@ class GameViewController: UIViewController {
         }
         
         scnScene.rootNode.addChildNode(merlinNode)
-        //scnScene.rootNode.addChildNode(capsuleNode)
-        scnScene.rootNode.addChildNode(pyramidNode)
+        scnScene.rootNode.addChildNode(torusNode)
+        //scnScene.rootNode.addChildNode(pyramidNode)
         
         
         
@@ -115,6 +115,26 @@ class GameViewController: UIViewController {
             if node.presentationNode.position.y < -6 {
                 node.removeFromParentNode()
             }
+        }
+    }
+    
+    func handleTouchFor(node: SCNNode) {
+        if node.name == "GOOD" {
+            //game.score += 1
+            node.removeFromParentNode()
+        } else if node.name == "BAD" {
+            //game.lives -= 1
+            node.removeFromParentNode()
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.locationInView(scnView)
+        let hitResults = scnView.hitTest(location, options: nil)
+        if hitResults.count > 0 {
+            let result = hitResults.first!
+            handleTouchFor(result.node)
         }
     }
 }
